@@ -1,0 +1,275 @@
+main > .container, .breadcrumb {
+    padding: 0 15px 20px;
+}
+
+body{
+    font-family: Clear Sans Medium;
+}
+
+.breadcrumb {
+    padding: 0 15px 20px;
+}
+
+header {
+    margin-bottom: 140px;
+}
+
+header nav {
+    background-color: #fff;
+    border-bottom: 3px solid #468966;
+}
+
+.lev-bg {
+    background-color: #468966;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.cw {
+    color: #ffffff;
+}
+
+.ml-auto {
+    margin-left: auto !important;
+}
+
+.site-error.md-top-20 {
+    margin-top: 100px;
+}
+
+.dn {
+    display: none;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.small-font {
+    font-family: GetVoIP Grotesque;
+}
+
+.tc {
+    text-align: center;
+}
+
+.tf{
+    text-align: justify;
+}
+
+/* header */
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link:hover {
+    border-bottom: solid 3px #468966;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    margin-right: 25px;
+    transition: .8s ease;
+    border-bottom: solid 3px transparent;
+    color: #468966 !important;
+    font-size: 24px;
+}
+
+/* end header */
+
+.breadcrumb {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+ol.breadcrumb {
+    padding-left: 16%;
+}
+
+.breadcrumb-item > a {
+    text-decoration: none;
+}
+
+/* footer */
+.footer .container {
+    padding-top: 40px;
+}
+
+.footer > .container, .footer > .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.before-footer-ln {
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.footer li {
+    float: left;
+}
+
+li a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.social-icons {
+    margin-left: -20px;
+
+}
+
+.social-icons-block {
+    display: flex;
+}
+
+.footer-menu-block {
+    margin: 50px 0;
+}
+
+.footer-menu {
+    padding-top: 15px;
+    padding-left: 30%;
+}
+
+.footer-menu .nav-item {
+    margin-left: 20px;
+}
+
+.footer-brand {
+    padding-left: 60px;
+}
+
+/* end footer*/
+
+
+/* main page */
+#main-fon {
+    background-image: url('../images/main/first.png');
+    min-height: 700px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    padding: 5% 0 0 10%;
+}
+
+.about-us-block {
+    font-size: 24px;
+}
+
+#second-fon {
+    border-radius: 100px;
+    background-image: url('../images/main/second.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5% 0 0 10%;
+    min-height: 700px;
+    margin-top: 40px;
+}
+
+.lev-font-color {
+    color: #468966 !important;
+}
+
+#fon .fon-title {
+    margin-left: 20%;
+    margin-top: 3%;
+}
+
+.title-main {
+    font-size: 66px;
+}
+
+.title-children {
+    font-size: 37px;
+}
+
+.consultation-appointment {
+    margin: 6% 0 0 5%;
+}
+
+.consultation-appointment button {
+    color: #174B23;
+    padding: 20px 10px;
+    font-size: 24px
+}
+
+.consulting-submit-button {
+    margin-top: 10px;
+}
+
+.main-us-select-item {
+    background-color: #71A797;
+    border-radius: 15px;
+    padding: 30px;
+    margin-right: 20px;
+    max-width: 23%;
+}
+
+.main-us-select-title {
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.main-about-us {
+    margin-bottom: 20px;
+    margin-top: 60px;
+}
+
+.main-about-us-item {
+    background-color: #71A797;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 10px 20px;
+
+    max-width: 30%;
+}
+
+.main-about-us-item-last {
+    background-color: #71A797;
+    border-radius: 15px;
+    margin-right: 40px;
+    margin-top: 10px;
+}
+
+/*.main-us-select-item p, .main-about-us-item p {*/
+/*    font-family: Clear Sans Medium;*/
+/*}*/
+/* end main page */
+
+/* start serve page */
+
+.site-about ul {
+    list-style-type: '- ';
+    padding-left: 10px;
+}
+
+.site-about li {
+    font-size: 30px;
+}
+
+.serve-round-image img {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.serve-text-block h1 {
+    margin-top: 100px;
+}
+
+/* end serve page */
+
+/* start price page */
+.main-price-item img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* end price page */
