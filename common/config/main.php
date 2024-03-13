@@ -1,7 +1,6 @@
 <?php
 
 use yii\caching\FileCache;
-use yii\symfonymailer\Mailer;
 
 return [
     'aliases' => [

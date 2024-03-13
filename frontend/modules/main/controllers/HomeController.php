@@ -12,7 +12,6 @@ use yii\web\Request;
 use yii\web\Response;
 use Yii;
 
-
 final class HomeController extends Controller
 {
     /**
@@ -51,7 +50,6 @@ final class HomeController extends Controller
                 $consultingService = new ConsultingService();
                 $consultingService->notification($form);
             }
-            //$this->refresh();
             Yii::$app->session->setFlash(
                 'success',
                 Yii::t('app', 'Ваш запит прийнято. Ми зателефонуємо вам ')
