@@ -66,9 +66,11 @@ server {
    error_log /tmp/lev-buh.com-error.log;
    access_log /tmp/lev-buh.com-access.log;
 
-   listen 443; # listen 443 ssl;
+   listen 443 ssl;
 
-   #ssl
+   ssl_certificate /srv/storage/ssl/lev-buh.com.crt;
+   ssl_certificate_key /srv/storage/ssl/lev-buh.com.key;
+
 
    root        /var/www/frontend/web;
    index       index.php;
