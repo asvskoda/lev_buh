@@ -8,10 +8,9 @@ return [
             'username' => 'postgres',
             'password' => '',
             'charset' => 'utf8',
-        ],
-        'mailer' => [
-            'class' => \yii\symfonymailer\Mailer::class,
-            'viewPath' => '@common/mail',
+            'on afterOpen' => function ($event) {
+                $event->sender->createCommand("SET timezone to 'Europe/Minsk';")->execute();
+            }
         ],
     ],
 ];
