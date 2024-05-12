@@ -88,7 +88,7 @@ $myAssetBundle = AppAsset::register($this);
             </div>
 
             <div class='footer-contacts'>
-                <h2 class='fh2'><?= Yii::t('app','Контакти') ?></h2>
+                <h2 class='footer-title'><?= Yii::t('app','Контакти') ?></h2>
                 <a class='phone cw td' href='tel:+380986073304'>
                     <i class='fa-solid fa-phone-volume'></i>
                     +38 (098) 607-33-04
@@ -104,7 +104,7 @@ $myAssetBundle = AppAsset::register($this);
                     <a rel='noopener noreferrer' target='_blank' href='viber://chat?number=+380986073304' class='social-icons-link'>
                         <i class='fa-brands fa-viber cw'></i>
                     </a>
-                    <a rel='noopener noreferrer' target='_blank' href='https://www.instagram.com/lev_buh_agency' class='social-icons-link'>
+                    <a rel='noopener noreferrer' target='_blank' href='https://www.instagram.com/lev.buh.agency' class='social-icons-link'>
                         <i class='fa-brands fa-instagram cw'></i>
                     </a>
                     <a rel='noopener noreferrer' target='_blank' href='https://www.facebook.com/profile.php?id=61555635522199' class='social-icons-link'>
@@ -114,12 +114,11 @@ $myAssetBundle = AppAsset::register($this);
             </div>
 
             <div class='footer-address'>
-                <h2 class='fh2'><?= Yii::t('app','Адреса офісу') ?></h2>
+                <h2 class='footer-title'><?= Yii::t('app','Адреса офісу') ?></h2>
                 <i class='fa-solid fa-location-dot cw'></i>
                 <?= Html::a(
                         Yii::t('app', 'Харківська обл., смт Пісочин (с.Надточії), вул.Дачна 39'),
-                        ['/contact'],
-                        ['class' => 'td cw']
+                        ['/contact']
                 ) ?>
             </div>
         </div>
