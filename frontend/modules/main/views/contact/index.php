@@ -34,7 +34,7 @@ $myAssetBundle = AppAsset::register($this);
             <a rel='noopener noreferrer' target='_blank' href='https://www.instagram.com/lev.buh.agency' class='social-icons-link'>
                 <i class='fa-brands fa-instagram lev-color'></i>
             </a>
-            <a rel='noopener noreferrer' target='_blank' href='https://www.facebook.com/profile.php?id=61555635522199' class='social-icons-link'>
+            <a rel='noopener noreferrer' target='_blank' href='https://www.facebook.com/profile.php?id=61557095614231' class='social-icons-link'>
                 <i class='fa-brands fa-facebook lev-color'></i>
             </a>
         </div>
