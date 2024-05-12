@@ -94,7 +94,7 @@ a:hover {
 }
 
 .tf {
-    text-align: justify;
+    text-align: center;
     text-indent: 3em;
     margin-bottom: 0;
     font-size: 24px;
@@ -108,9 +108,6 @@ i {
     margin-right: 10px;
     margin-top: 5px;
 }
-
-
-
 
 /* header */
 .header-menu {
@@ -439,7 +436,7 @@ i {
 
 .content-block__item-text {
     font-size: 16px;
-    text-align: justify;
+    text-align: center;
     color: black;
 }
 
@@ -808,10 +805,6 @@ i {
     .bg-hand::before {
         width: 110px;
         height: 89px;
-    }
-
-    .tf {
-        font-size: 20px;
     }
 
     .f2 {
