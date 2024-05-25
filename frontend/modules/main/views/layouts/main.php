@@ -58,7 +58,7 @@ $myAssetBundle = AppAsset::register($this);
                             </li>
                         </ul>
                         <a class='header-navbar__contacts' href='tel:+380986073304'>
-                            <span><?= Yii::t('app', 'Ми на зв\'язку') ?></span>
+                            <span>Ми на зв'язку</span>
                             <span>+38 (098) 607-33-04</span>
                             <small>Пн.-Пт. з 09:00 до 18:00</small>
                         </a>
@@ -71,10 +71,18 @@ $myAssetBundle = AppAsset::register($this);
 
     <main role='main'>
         <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] :  [],
+            'options' => ['class' => 'container'],
         ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>
+        <div class="up-button__wrapper">
+            <a href="" class="up-button">
+                <svg width="29" height="29" viewBox="0 0 50 29" fill="none">
+                    <path class="up-button__path" d="M4.5 24.5L25 4L45.5 24.5" stroke="#545683" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+        </div>
     </main>
 
     <footer class='footer lev-bg cw'>
@@ -82,13 +90,13 @@ $myAssetBundle = AppAsset::register($this);
             <div class='footer-logo'>
                 <a class='cw td' href=' /'>
                     <?= Html::img($myAssetBundle->baseUrl . '/images/icon-round.png') ?>
-                    <span><?= Yii::t('app', 'Бухгалтерська агенція "ЛЕВ"') ?></span>
+                    <span>Бухгалтерська агенція "ЛЕВ"</span>
                 </a>
-                <span class='f2'><?= Yii::t('app','Наш супровід - Ваш спокій') ?></span>
+                <span>Наш супровід - Ваш спокій</span>
             </div>
 
             <div class='footer-contacts'>
-                <h2 class='footer-title'><?= Yii::t('app','Контакти') ?></h2>
+                <h2 class='footer-title'>Контакти</h2>
                 <a class='phone cw td' href='tel:+380986073304'>
                     <i class='fa-solid fa-phone-volume'></i>
                     +38 (098) 607-33-04
@@ -104,27 +112,25 @@ $myAssetBundle = AppAsset::register($this);
                     <a rel='noopener noreferrer' target='_blank' href='viber://chat?number=+380986073304' class='social-icons-link'>
                         <i class='fa-brands fa-viber cw'></i>
                     </a>
-                    <a rel='noopener noreferrer' target='_blank' href='https://www.instagram.com/lev.buh.agency' class='social-icons-link'>
+                    <a rel='noopener noreferrer' target='_blank' href='https://www.instagram.com/lev_buh_agency' class='social-icons-link'>
                         <i class='fa-brands fa-instagram cw'></i>
                     </a>
-                    <a rel='noopener noreferrer' target='_blank' href='https://www.facebook.com/profile.php?id=61557095614231' class='social-icons-link'>
+                    <a rel='noopener noreferrer' target='_blank' href='https://www.facebook.com/profile.php?id=61555635522199' class='social-icons-link'>
                         <i class='fa-brands fa-facebook cw'></i>
                     </a>
                 </div>
             </div>
 
             <div class='footer-address'>
-                <h2 class='footer-title'><?= Yii::t('app','Адреса офісу') ?></h2>
-                <i class='fa-solid fa-location-dot cw'></i>
-                <?= Html::a(
-                        Yii::t('app', 'Харківська обл., смт Пісочин (с.Надточії), вул.Дачна 39'),
-                        ['/contact']
-                ) ?>
+                <h2 class='footer-title'>Адреса офісу</h2>
+                <i class='fa-solid fa-location-dot'></i>
+                <?= Html::a(Yii::t('app', 'Харківська обл., смт Пісочин (с.Надточії), вул.Дачна 39'), ['/contact']) ?>
             </div>
         </div>
     </footer>
+
     <?php $this->endBody() ?>
     </body>
     </html>
-<?php $this->endPage() ?>
 
+<?php $this->endPage();
