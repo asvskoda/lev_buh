@@ -36,7 +36,7 @@ $myAssetBundle = AppAsset::register($this);
                 <nav class='header-menu__container'>
                     <div class='header-logo'>
                         <a class='header-logo__link' href='/'>
-                            <?= Html::img($myAssetBundle->baseUrl . '/images/icon-round.png') ?>
+                            <?= Html::img($myAssetBundle->baseUrl . '/images/icon-round.webp') ?>
                         </a>
                     </div>
                     <div class='header-navbar'>
@@ -91,7 +91,7 @@ $myAssetBundle = AppAsset::register($this);
         <div class='container'>
             <div class='footer-logo'>
                 <a class='cw td' href=' /'>
-                    <?= Html::img($myAssetBundle->baseUrl . '/images/icon-round.png') ?>
+                    <?= Html::img($myAssetBundle->baseUrl . '/images/icon-round.webp') ?>
                     <span>Бухгалтерська агенція "ЛЕВ"</span>
                 </a>
                 <span>Наш супровід - Ваш спокій</span>

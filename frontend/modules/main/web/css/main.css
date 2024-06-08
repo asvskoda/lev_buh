@@ -372,7 +372,7 @@ i {
 
 /* main page */
 #main-fon {
-    background-image: url('../images/main/first.png');
+    background-image: url('../images/main/first.webp');
     min-height: 700px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -447,7 +447,7 @@ i {
 
 .content-block__bg {
     position: relative;
-    background-image: url('../images/main/second.png');
+    background-image: url('../images/main/second.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -701,7 +701,7 @@ a.price-card span {
     right: 0;
     width: 5.5em;
     height: 4em;
-    background-image: url(../images/price/calk-bottom-right.png);
+    background-image: url(../images/price/calk-bottom-right.webp);
     background-size: cover;
     background-position: center;
     z-index: 1;
@@ -716,7 +716,7 @@ a.price-card span {
     left: 0;
     width: 12em;
     height: 9.5em;
-    background-image: url(../images/price/hand-left-top.png);
+    background-image: url(../images/price/hand-left-top.webp);
     background-size: cover;
     background-position: center;
     z-index: 1;
@@ -990,15 +990,15 @@ iframe {
 
 
     .bg-two_notebooks {
-        background-image: url(../images/serve/two-notebooks-round.png);
+        background-image: url(../images/serve/two-notebooks-round.webp);
     }
 
     .bg-codecs {
-        background-image: url(../images/serve/codecs-round.png);
+        background-image: url(../images/serve/codecs-round.webp);
     }
 
     .bg-notebook {
-        background-image: url(../images/serve/notebook-round.png);
+        background-image: url(../images/serve/notebook-round.webp);
     }
 
 
