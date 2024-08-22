@@ -1,4 +1,4 @@
-const baseUrl = window.location.origin + '/index.php/article/seo'
+const baseUrl = window.location.origin + '/admin/seo'
 
 const requestGetEditorTemplate = (id) => {
     return $.ajax({
