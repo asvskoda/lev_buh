@@ -1,5 +1,4 @@
 <?php
-
 /** @var \yii\web\View $this */
 /** @var string $content */
 
@@ -83,21 +82,22 @@ $myAssetBundle = AppAsset::register($this);
         </div>
     </header>
     <main role='main'>
+        <?php if (isset($this->params['breadcrumbs'])) : ?>
         <div class='breadcrumbs' id='breadcrumbs'>
             <ul class='breadcrumb'>
-                <?php if (isset($this->params['breadcrumbs'])) : ?>
                     <?= Breadcrumbs::widget([
                         'itemTemplate' => "<li>{link}</li>\n",
                         'links' => $this->params['breadcrumbs'],
                         'homeLink' => [
-                            'label' => Yii::t('app','Головна'),
+                            'label' => Yii::t('app', 'Головна'),
                             'url' => ['/'],
                             'template' => "<i class='ace-icon fa fa-home home-icon'></i><li>{link}</li>",
                         ],
+                        'options' => ['class' => 'breadcrumb container'],
                     ]) ?>
-                <?php endif ?>
             </ul>
         </div>
+        <?php endif ?>
         <?= Alert::widget() ?>
         <?= $content ?>
         <div class='up-button__wrapper'>
@@ -114,11 +114,10 @@ $myAssetBundle = AppAsset::register($this);
             <div class='footer-logo'>
                 <a class='cw td' href='/'>
                     <?= Html::img($myAssetBundle->baseUrl . '/images/icon-round.webp') ?>
-                    <span>Бухгалтерська агенція "ЛЕВ"</span>
+                    <span class='cw'>Бухгалтерська агенція "ЛЕВ"</span>
                 </a>
                 <span>Наш супровід - Ваш спокій</span>
             </div>
-
             <div class='footer-contacts'>
                 <h2 class='footer-title'>Контакти</h2>
                 <a class='phone cw td' href='tel:+380986073304'>
@@ -147,11 +146,12 @@ $myAssetBundle = AppAsset::register($this);
                     </a>
                 </div>
             </div>
-
             <div class='footer-address'>
                 <h2 class='footer-title'>Адреса офісу</h2>
-                <i class='fa-solid fa-location-dot'></i>
-                <?= Html::a(Yii::t('app', 'Харківська обл., смт Пісочин (с.Надточії), вул.Дачна 39'), ['/contact']) ?>
+                <a class='cw td' href='/contact'>
+                    <i class='fa-solid fa-location-dot'></i>
+                    Харківська обл., смт Пісочин (с.Надточії), вул.Дачна 39
+                </a>
             </div>
         </div>
     </footer>
