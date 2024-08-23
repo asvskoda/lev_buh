@@ -1,5 +1,3 @@
-/* main page */
-
 #main-fon {
     background-image: url('../images/main/first.webp');
     min-height: 700px;
@@ -16,9 +14,8 @@
     color: #468966 !important;
 }
 
-
-.title-main,
-.title-children {
+.title-main, .title-children {
+    color: white;
     padding: 5% 0 0 5%;
 }
 
@@ -128,9 +125,7 @@
     text-align: center;
 }
 
-/* end main page */
 @media(max-width: 767.8px) {
-    /* main - media */
     #main-fon {
         min-height: 7em;
         background-position: center;
@@ -177,6 +172,4 @@
         line-height: 25px;
         padding: 15px;
     }
-
-    /* end main - media */
 }

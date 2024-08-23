@@ -9,10 +9,6 @@ jQuery(function ($) {
         $(`a.nav-link.${action}`).addClass('active');
     }
 
-    $('.modal-button-consulting').on('click', function () {
-        $('#myModal').modal('show');
-    });
-
     $('.close-modal').on('click', function () {
         $('#myModal').modal('hide');
     });

@@ -1,13 +1,11 @@
 <?php
-
 /** @var \yii\web\View $this */
-
 /** @var string $content */
 
 use common\widgets\Alert;
 use frontend\modules\main\assets\AppAsset;
-use yii\bootstrap5\Html;
-use yii\bootstrap5\Breadcrumbs;
+use yii\bootstrap\Html;
+use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
 
 $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
@@ -16,18 +14,14 @@ $myAssetBundle = AppAsset::register($this);
 <?php $this->beginPage() ?>
     <!DOCTYPE html>
     <html lang='<?= Yii::$app->language ?>' class='h-100'>
-
     <head>
         <meta charset='<?= Yii::$app->charset ?>'>
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
         <?php $this->registerCsrfMetaTags() ?>
-        <?php
-        echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css'>";
-        ?>
+        <?= "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css'>" ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
-
     <body>
     <?php $this->beginBody() ?>
 
@@ -86,36 +80,44 @@ $myAssetBundle = AppAsset::register($this);
                 </nav>
             </div>
         </div>
-
     </header>
-
     <main role='main'>
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            'options' => ['class' => 'container'],
-        ]) ?>
+        <?php if (isset($this->params['breadcrumbs'])) : ?>
+        <div class='breadcrumbs' id='breadcrumbs'>
+            <ul class='breadcrumb'>
+                    <?= Breadcrumbs::widget([
+                        'itemTemplate' => "<li>{link}</li>\n",
+                        'links' => $this->params['breadcrumbs'],
+                        'homeLink' => [
+                            'label' => Yii::t('app', 'Головна'),
+                            'url' => ['/'],
+                            'template' => "<i class='ace-icon fa fa-home home-icon'></i><li>{link}</li>",
+                        ],
+                        'options' => ['class' => 'breadcrumb container'],
+                    ]) ?>
+            </ul>
+        </div>
+        <?php endif ?>
         <?= Alert::widget() ?>
         <?= $content ?>
-        <div class="up-button__wrapper">
+        <div class='up-button__wrapper'>
             <a href="" class="up-button">
-                <svg width="29" height="29" viewBox="0 0 50 29" fill="none">
-                    <path class="up-button__path" d="M4.5 24.5L25 4L45.5 24.5" stroke="#545683" stroke-width="4"
-                          stroke-linecap="round" stroke-linejoin="round"></path>
+                <svg width='29' height='29' viewBox='0 0 50 29' fill='none'>
+                    <path class='up-button__path' d='M4.5 24.5L25 4L45.5 24.5' stroke='#545683' stroke-width='4'
+                          stroke-linecap='round' stroke-linejoin='round'></path>
                 </svg>
             </a>
         </div>
     </main>
-
     <footer class='footer lev-bg cw'>
         <div class='container'>
             <div class='footer-logo'>
-                <a class='cw td' href=' /'>
+                <a class='cw td' href='/'>
                     <?= Html::img($myAssetBundle->baseUrl . '/images/icon-round.webp') ?>
-                    <span>Бухгалтерська агенція "ЛЕВ"</span>
+                    <span class='cw'>Бухгалтерська агенція "ЛЕВ"</span>
                 </a>
                 <span>Наш супровід - Ваш спокій</span>
             </div>
-
             <div class='footer-contacts'>
                 <h2 class='footer-title'>Контакти</h2>
                 <a class='phone cw td' href='tel:+380986073304'>
@@ -144,17 +146,16 @@ $myAssetBundle = AppAsset::register($this);
                     </a>
                 </div>
             </div>
-
             <div class='footer-address'>
                 <h2 class='footer-title'>Адреса офісу</h2>
-                <i class='fa-solid fa-location-dot'></i>
-                <?= Html::a(Yii::t('app', 'Харківська обл., смт Пісочин (с.Надточії), вул.Дачна 39'), ['/contact']) ?>
+                <a class='cw td' href='/contact'>
+                    <i class='fa-solid fa-location-dot'></i>
+                    Харківська обл., смт Пісочин (с.Надточії), вул.Дачна 39
+                </a>
             </div>
         </div>
     </footer>
-
     <?php $this->endBody() ?>
     </body>
     </html>
-
 <?php $this->endPage();

@@ -26,7 +26,6 @@ class ConsultingController extends Controller
                     'class' => AccessControl::class,
                     'rules' => [
                         [
-                            'actions' => ['logout', 'index'],
                             'allow' => true,
                             'roles' => ['@'],
                         ],
