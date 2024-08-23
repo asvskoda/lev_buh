@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace common\modules\article\seo\models;
+namespace common\modules\article\models;
 
 use frontend\modules\admin\behaviors\ResizeImageBehavior;
 use Yii;
@@ -91,7 +91,12 @@ final class Article extends ActiveRecord
             ],
             [['header', 'title', 'slug', 'description', 'keywords', 'image_alt', 'content'], StringValidator::class],
             [['slug'], UniqueValidator::class],
-            ['image', ImageValidator::class, 'extensions' => ['png', 'jpg', 'jpeg', 'gif'], 'maxSize' => 1024 * 1024],
+            [
+                'image',
+                ImageValidator::class,
+                'extensions' => ['png', 'jpg', 'jpeg', 'gif'],
+                'maxSize' => 1024 * 1024 * 5
+            ],
             [['created_at', 'updated_at'], SafeValidator::class],
         ];
     }

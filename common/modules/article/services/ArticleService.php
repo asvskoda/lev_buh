@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace common\modules\article\seo\services;
+namespace common\modules\article\services;
 
-use common\modules\article\seo\models\Article;
-use common\modules\article\seo\repositories\interfaces\SeoRepositoryInterface;
+use common\modules\article\models\Article;
+use common\modules\article\repositories\interfaces\ArticleRepositoryInterface;
 use yii\data\ActiveDataProvider;
 use yii\helpers\FileHelper;
 use yii\web\Request;
 
-final class SeoService implements interfaces\SeoServiceInterface
+final class ArticleService implements interfaces\ArticleServiceInterface
 {
-    private SeoRepositoryInterface $seoRepository;
+    private ArticleRepositoryInterface $seoRepository;
 
-    public function __construct(SeoRepositoryInterface $seoRepository)
+    public function __construct(ArticleRepositoryInterface $seoRepository)
     {
         $this->seoRepository = $seoRepository;
     }

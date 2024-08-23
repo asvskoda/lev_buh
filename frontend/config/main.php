@@ -59,7 +59,7 @@ return [
                 'price' => 'main/price/index',
                 'testimonial' => 'main/testimonial/index',
                 'consulting' => 'admin/consulting/index',
-                'article' => 'admin/seo/index',
+                'article' => 'admin/article/index',
                 //'logout' => 'admin/auth/logout',
                 //'admin/login' => 'admin/login/index',
 //                '<controller:\w+>/<id:\d+>' => '<controller>/view',

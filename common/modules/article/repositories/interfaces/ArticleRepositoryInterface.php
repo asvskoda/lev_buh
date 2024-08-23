@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace common\modules\article\seo\repositories\interfaces;
+namespace common\modules\article\repositories\interfaces;
 
-use common\modules\article\seo\models\Article;
+use common\modules\article\models\Article;
 use yii\db\ActiveQuery;
 
-interface SeoRepositoryInterface
+interface ArticleRepositoryInterface
 {
     /** Получение подготовленного запроса для провайдера */
     public function getProviderQuery(): ActiveQuery;

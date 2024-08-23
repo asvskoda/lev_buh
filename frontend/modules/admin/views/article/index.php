@@ -2,18 +2,16 @@
 
 declare(strict_types=1);
 
-use frontend\modules\admin\assets\SeoAssertBundle;
-use common\modules\article\seo\models\Article;
+use frontend\modules\admin\assets\ArticleAssertBundle;
+use common\modules\article\models\Article;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\web\View;
 
-SeoAssertBundle::register($this);
+ArticleAssertBundle::register($this);
 
-$this->title = Yii::t('app', 'Список статей для CEO');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Статьи')];
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'CEO')];
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Список')];
+$this->title = Yii::t('app', 'Список статей');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Список статей')];
 
 /**
  * @var View $this

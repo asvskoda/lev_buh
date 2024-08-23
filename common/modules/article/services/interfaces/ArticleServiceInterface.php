@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace common\modules\article\seo\services\interfaces;
+namespace common\modules\article\services\interfaces;
 
-use common\modules\article\seo\models\Article;
+use common\modules\article\models\Article;
 use yii\data\ActiveDataProvider;
 use yii\web\Request;
 
-interface SeoServiceInterface
+interface ArticleServiceInterface
 {
     /** Получение провайдера данных */
     public function getDataProvider(): ActiveDataProvider;

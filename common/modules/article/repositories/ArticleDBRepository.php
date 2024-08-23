@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace common\modules\article\seo\repositories;
+namespace common\modules\article\repositories;
 
 use common\modules\article\exceptions\NotFoundException;
-use common\modules\article\seo\models\Article;
+use common\modules\article\models\Article;
 use yii\db\ActiveQuery;
 
-final class SeoDBRepository implements interfaces\SeoRepositoryInterface
+final class ArticleDBRepository implements interfaces\ArticleRepositoryInterface
 {
     /** @ineritdoc */
     public function getProviderQuery(): ActiveQuery

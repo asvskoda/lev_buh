@@ -4,25 +4,48 @@ declare(strict_types=1);
 
 namespace frontend\modules\admin\controllers;
 
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
-use common\modules\article\seo\services\interfaces\SeoServiceInterface;
+use common\modules\article\services\interfaces\ArticleServiceInterface;
 use yii\base\Module;
 
-final class SeoController extends Controller
+final class ArticleController extends Controller
 {
     private const SUCCESS = 'success';
 
-    private SeoServiceInterface $seoService;
+    private ArticleServiceInterface $seoService;
 
     public function __construct(
         string $id,
         Module $module,
-        SeoServiceInterface $seoService,
+        ArticleServiceInterface $seoService,
         array $config = []
     ) {
         $this->seoService = $seoService;
 
         parent::__construct($id, $module, $config);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function behaviors()
+    {
+        return array_merge(
+            parent::behaviors(),
+            [
+                'access' => [
+                    'class' => AccessControl::class,
+                    'rules' => [
+                        [
+                            'allow' => true,
+                            'roles' => ['@'],
+                        ],
+                    ],
+                ],
+            ]
+        );
     }
 
     public function actionIndex(): string

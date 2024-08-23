@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use frontend\modules\admin\assets\SeoAssertBundle;
+use frontend\modules\admin\assets\ArticleAssertBundle;
 use frontend\modules\admin\models\Article;
 use kartik\editors\Summernote;
 use kartik\form\ActiveForm;
@@ -11,7 +11,7 @@ use yii\helpers\Url;
 use yii\web\View;
 use yii\widgets\Pjax;
 
-$bundleBaseUrl = $this->assetManager->getBundle(SeoAssertBundle::class)->baseUrl;
+$bundleBaseUrl = $this->assetManager->getBundle(ArticleAssertBundle::class)->baseUrl;
 
 /**
  * @var View $this
@@ -25,7 +25,7 @@ $bundleBaseUrl = $this->assetManager->getBundle(SeoAssertBundle::class)->baseUrl
     'enablePushState' => false,
 ]) ?>
 <?php $form = ActiveForm::begin([
-        'action' => Url::toRoute(['seo/save', 'id' => $article->id ?? '']),
+        'action' => Url::toRoute(['article/save', 'id' => $article->id ?? '']),
         'options' => ['id' => 'editor__form', 'data-pjax' => 1, 'enctype' => 'multipart/form-data']
 ]) ?>
 

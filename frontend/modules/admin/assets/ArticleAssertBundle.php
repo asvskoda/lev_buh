@@ -5,9 +5,9 @@ namespace frontend\modules\admin\assets;
 use yii\web\AssetBundle;
 use yii\web\JqueryAsset;
 
-final class SeoAssertBundle extends AssetBundle
+final class ArticleAssertBundle extends AssetBundle
 {
-    public $sourcePath = '@app/modules/admin/web/seo';
+    public $sourcePath = '@app/modules/admin/web/article';
 
     public $css = [
         'css/index.css',

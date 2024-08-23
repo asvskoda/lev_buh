@@ -1,6 +1,6 @@
 <?php
 
-use common\modules\article\seo\models\Article;
+use common\modules\article\models\Article;
 use yii\data\ActiveDataProvider;
 use yii\grid\GridView;
 use yii\web\View;
