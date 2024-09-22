@@ -10,7 +10,7 @@ server {
    access_log /tmp/lev-buh.com-access.log;
 
    listen 80;
-   listen 80 default_server;
+   #listen 80 default_server;
    listen  [::]:80 default_server;
 
    root        /var/www/frontend/web;
