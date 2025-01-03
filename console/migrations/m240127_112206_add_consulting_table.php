@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 use yii\db\Migration;
 
 /**
  * Таблица запросов на консультацию
  */
-class m240127_112206_add_consulting_table extends Migration
+final class m240127_112206_add_consulting_table extends Migration
 {
     private const TABLE_NAME = '{{%consulting_requests}}';
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function safeUp(): void
     {
@@ -28,7 +30,7 @@ class m240127_112206_add_consulting_table extends Migration
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function safeDown(): void
     {
