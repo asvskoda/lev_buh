@@ -72,7 +72,7 @@ return [
     'modules' => [
         'debug' => [
             'class' => 'yii\debug\Module',
-            //'allowedIPs' => ['127.0.0.1', '::1'],
+            'allowedIPs' => ['127.0.0.1', '::1', '172.19.0.1'],
         ],
         'gii' => [
             'class' => '\yii\gii\Module',

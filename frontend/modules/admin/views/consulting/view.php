@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\web\YiiAsset;
 
 /** @var yii\web\View $this */
 /** @var common\modules\notifications\models\ConsultingRequest $model */
@@ -9,7 +10,7 @@ use yii\widgets\DetailView;
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Consulting Requests'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
+YiiAsset::register($this);
 ?>
 <div class="consulting-request-view">
 

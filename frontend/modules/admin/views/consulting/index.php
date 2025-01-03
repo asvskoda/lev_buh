@@ -34,10 +34,11 @@ $myAssetBundle = AdminAsset::register($this);
             'question:ntext',
             'is_active:boolean',
             'created_at',
+            'ip',
             [
                 'class' => ActionColumn::class,
                 'header'=>'Actions',
-                'template' => '{update}',
+                'template' => '{view}',
                 'urlCreator' => function ($action, ConsultingRequest $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                 }

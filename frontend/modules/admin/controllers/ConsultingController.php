@@ -101,6 +101,7 @@ class ConsultingController extends Controller
     public function actionCreate()
     {
         $model = new ConsultingRequest();
+        $model->ip = '127.0.0.1';
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {

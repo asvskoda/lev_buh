@@ -5,7 +5,10 @@ namespace frontend\modules\main\forms;
 use Yii;
 use yii\base\Model;
 use yii\validators\EmailValidator;
+use yii\validators\FilterValidator;
+use yii\validators\IpValidator;
 use yii\validators\RequiredValidator;
+use yii\validators\SafeValidator;
 use yii\validators\StringValidator;
 
 /**
@@ -17,9 +20,10 @@ class ContactForm extends Model
     public $email;
     public $question;
     public $phone;
+    public $ip;
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function rules()
     {
@@ -29,21 +33,24 @@ class ContactForm extends Model
                 RequiredValidator::class,
                 'message' => Yii::t('app', 'Не може бути пустим')
             ],
-            [['name', 'email', 'question','phone'], 'filter', 'filter' => 'trim'],
-            [['name', 'email', 'question','phone'], StringValidator::class],
+            [['name', 'email', 'question','phone'], FilterValidator::class, 'filter' => 'trim'],
+            ['question', StringValidator::class],
+            ['name', StringValidator::class, 'min' => 3, 'max' => 100],
             [
                 'phone',
                 StringValidator::class,
                 'min' => 10,
                 'max' => 13,
-                'message' =>  Yii::t('app', 'Неправильний формат номера телефону')
+                'message' =>  Yii::t('app', 'Невірний формат номера телефону')
             ],
             ['email', EmailValidator::class],
+            ['ip', SafeValidator::class],
+            ['ip', IpValidator::class],
         ];
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function attributeLabels()
     {
