@@ -32,9 +32,7 @@ final class ConsultingService
 
         $ipSpamKey = self::IP_SPAM_KEY . $form->ip;
 
-        $this->deleteIpFromSpamSession($ipSpamKey);
-
-        $sesInfo = $this->session->get($ipSpamKey);
+        //$this->deleteIpFromSpamSession($ipSpamKey);
 
         if ($this->session->has($ipSpamKey)) {
             $this->createLog("Blacklist ip - {$form->ip} ");
@@ -85,6 +83,8 @@ final class ConsultingService
 
     private function deleteIpFromSpamSession(string $sessionKey): void
     {
-        $this->session->remove($sessionKey);
+        if ($this->session->has($sessionKey)) {
+            $this->session->remove($sessionKey);
+        }
     }
 }
