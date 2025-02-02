@@ -58,4 +58,13 @@ final class ConsultingRequest extends ActiveRecord
             ['is_active', BooleanValidator::class],
         ];
     }
+
+    public function save($runValidation = true, $attributeNames = null)
+    {
+        if (preg_match('/^[a-zA-Z\s]+$/', $this->question)) {
+            return true;
+        }
+
+        return parent::save($runValidation, $attributeNames);
+    }
 }

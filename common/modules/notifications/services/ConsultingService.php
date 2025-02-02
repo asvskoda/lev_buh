@@ -10,30 +10,53 @@ use Yii;
 use yii\db\Exception;
 use yii\helpers\HtmlPurifier;
 use common\helpers\LogHelper;
+use yii\web\Session;
 
 final class ConsultingService
 {
-    private const IP_BLACK_LIST = [];
+    private const IP_SPAM_KEY = 'consulting_ip_spam_key';
 
-    public function notification(ContactForm $form)
+    private Session $session;
+
+    public function __construct()
     {
-        if (in_array($form->ip, self::IP_BLACK_LIST)) {
-            LogHelper::writeInfo(
-                "Запрос от клиента с ip - {$form->ip} был проигнорирован " . json_encode($form),
-                Yii::getAlias('@runtime/logs/consulting.log')
-            );
+        $this->session = Yii::$container->get(Session::class);
+    }
+
+
+    /**
+     * @throws \Exception
+     */
+    public function notification(ContactForm $form): void
+    {
+
+        $ipSpamKey = self::IP_SPAM_KEY . $form->ip;
+
+        $this->deleteIpFromSpamSession($ipSpamKey);
+
+        $sesInfo = $this->session->get($ipSpamKey);
+
+        if ($this->session->has($ipSpamKey)) {
+            $this->createLog("Blacklist ip - {$form->ip} ");
+
+            return;
+        }
+
+        if (preg_match('/^[a-zA-Z\s]+$/', $form->question)) {
+            $this->session->set($ipSpamKey, time() . ' - ' . $form->ip);
+
+            $this->createLog("Question is wrong, ip - {$form->ip}, " . $form->question);
+
+            return;
         }
 
         try{
             $this->save($form);
             //$this->sendEmail($form);
         } catch (\Throwable $exception) {
-            LogHelper::writeInfo(
-                $exception->getMessage(),
-                Yii::getAlias('@runtime/logs/consulting.log')
-            );
+            $this->createLog('Error save ' . $exception->getMessage());
 
-            throw new \Exception('Ошибка в сервисе запроса консультации');
+            throw new \Exception(Yii::t('Вибачте виникла помилка'));
         }
     }
 
@@ -53,5 +76,15 @@ final class ConsultingService
         if ($consultingRequest->save() === false) {
             throw new Exception('False after save');
         }
+    }
+
+    private function createLog(string $message): void
+    {
+        LogHelper::writeInfo($message, Yii::getAlias('@runtime/logs/consulting.log'));
+    }
+
+    private function deleteIpFromSpamSession(string $sessionKey): void
+    {
+        $this->session->remove($sessionKey);
     }
 }
