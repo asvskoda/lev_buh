@@ -43,7 +43,7 @@ server {
 
    root        /var/www/frontend/web;
    index       index.php;
-   
+
    #location ^~ /.well-known/pki-validation/ {
    #  root /home/lev-buh.com/public_html;
    #  allow all;
