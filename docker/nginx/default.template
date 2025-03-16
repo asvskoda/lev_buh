@@ -10,11 +10,17 @@ server {
    access_log /tmp/lev-buh.com-access.log;
 
    listen 80;
-   #listen 80 default_server;
+   #listen 80 default_server; тут падение nginx поэтому убрал в комментарий для памяти
    listen  [::]:80 default_server;
 
    root        /var/www/frontend/web;
    index       index.php;
+
+   # для ежегодного подтверждения ssl через файл с кодом который создаем или меняем под контейнером nginx
+   #location ^~ /.well-known/pki-validation/ {
+   #   root /home/lev-buh.com/public_html;
+   #   allow all;
+   #}
 
    location / {
        return 301 https://$host$request_uri;
@@ -37,6 +43,11 @@ server {
 
    root        /var/www/frontend/web;
    index       index.php;
+   
+   #location ^~ /.well-known/pki-validation/ {
+   #  root /home/lev-buh.com/public_html;
+   #  allow all;
+   #}
 
    location / {
        # Redirect everything that isn't a real file to index.php
