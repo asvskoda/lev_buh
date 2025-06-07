@@ -11,7 +11,9 @@ git clone https://github.com/asvskoda/lev_buh
 2. выполнить из консоли id -u username
 and change uid
 
-make init
+make init   
+   
+Запуск в броузере - http://lev_buh.local:8001/
 ```
 
 ### Настройка
