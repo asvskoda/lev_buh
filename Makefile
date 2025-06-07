@@ -85,7 +85,19 @@ change-mode:
 	docker-compose $(COMPOSE) $(ENV) exec -T php bash -c "echo 123 | sudo -S chmod -R 777 /srv/storage/"
 
 last-log:
-	docker-compose $(COMPOSE) $(ENV) exec -T php bash -c "tail -n $(ARGS) console/runtime/logs/app.log && tail -n $(ARGS) backend/runtime/logs/app.log && tail -n $(ARGS) api/runtime/logs/app.log "
+	docker-compose $(COMPOSE) $(ENV) exec -T php bash -c "tail -n $(ARGS) console/runtime/logs/app.log && tail -n $(ARGS) backend/runtime/logs/app.log && tail -n $(ARGS) frontend/runtime/logs/app.log && tail -n $(ARGS) "
 
 restart-php:
 	docker restart lev-php
+
+restart-nginx:
+	docker-compose $(COMPOSE) $(ENV) restart nginx
+
+migrate:
+	docker-compose $(COMPOSE) $(ENV) exec php bash -c "php yii migrate --interactive=0 && php yii_test migrate --interactive=0"
+
+migrate-down:
+	docker-compose $(COMPOSE) $(ENV) exec php bash -c "php yii migrate/down $(ARGS)"
+
+migrate-create:
+	docker-compose $(COMPOSE) $(ENV) exec php bash -c "php yii migrate/create $(ARGS)"

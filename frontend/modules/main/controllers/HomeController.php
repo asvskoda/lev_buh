@@ -82,4 +82,26 @@ final class HomeController extends Controller
 
         return $this->redirect(Url::toRoute('index'));
     }
+
+    public function actionLanguage(): Response
+    {
+        $lang = Yii::$app->request->get('lang');
+
+        if (in_array($lang, ['uk', 'ru'])) {
+            Yii::$app->session->set('language', $lang);
+            Yii::$app->language = $lang;
+        }
+
+        $returnRoute = Yii::$app->request->get('returnRoute', '/main/home/index');
+        if ($returnRoute !== '/main/home/index') {
+            $returnRoute = '/' . $returnRoute;
+        }
+
+        $returnParams = Yii::$app->request->get('returnParams', []);
+
+        // Удаляем параметр lang из параметров, чтобы избежать дублирования
+        unset($returnParams['lang']);
+
+        return $this->redirect([$returnRoute] + $returnParams);
+    }
 }
