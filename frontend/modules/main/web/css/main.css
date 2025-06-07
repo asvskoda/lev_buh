@@ -125,6 +125,52 @@
     text-align: center;
 }
 
+#language-switcher a {
+    text-decoration: none;
+    color: #000;
+    margin-right: 10px;
+}
+
+#language-switcher a.active {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.breadcrumb {
+    background-color: #457450;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 0px;
+    margin-bottom: 20px;
+}
+
+.breadcrumb.container {
+   padding-bottom: 0px;
+}
+
+.breadcrumb a {
+    color: white;
+    text-decoration: none;
+}
+
+.breadcrumb .separator {
+    color: white;
+    opacity: 0.7;
+}
+
+.breadcrumb li.active {
+    color: black;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb i {
+    margin-right: 5px;
+}
+
 @media(max-width: 767.8px) {
     #main-fon {
         min-height: 7em;
