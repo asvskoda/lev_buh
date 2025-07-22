@@ -100,7 +100,7 @@ return [
                 'testimonial' => 'main/testimonial/index',
                 'consulting' => 'admin/consulting/index',
                 'article' => 'admin/article/index',
-                'dummy' => 'admin/dummy/index',
+                'admin' => 'admin/admin/index',
             ],
         ],
     ]),
