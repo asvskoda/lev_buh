@@ -38,7 +38,7 @@ $myAssetBundle = AdminAsset::register($this);
     $menuItems = [
         ['label' => 'consulting', 'url' => ['/consulting']],
         ['label' => 'article', 'url' => ['/article']],
-        ['label' => 'dummypage', 'url' => ['/dummy']],
+        ['label' => 'admin', 'url' => ['/admin']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
