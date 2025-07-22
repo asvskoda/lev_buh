@@ -13,7 +13,7 @@ use yii\widgets\Pjax;
 ArticleAssertBundle::register($this);
 
 /** @var yii\web\View $this */
-/** @var Article $article
+/** @var Article $article */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = 'AdminPanel';
