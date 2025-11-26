@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = 'Price';
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', 'подача щорічної звітності') ?></li>
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', 'консультування') ?></li>
                 </ul>
-                <p class='cost'>від 500 грн</p>
+                <p class='cost'>700 грн</p>
             </article>
             <article class='price-item'>
                 <h3 class='price-item__name'><?= Yii::t('app_price', 'Пакет стандарт') ?></h3>
@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = 'Price';
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', 'підготовка та щоквартальна здача 4ДФ') ?></li>
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', 'консультування') ?></li>
                 </ul>
-                <p class='cost'>900-1200 грн</p>
+                <p class='cost'>1200-1500 грн</p>
             </article>
             <article class='price-item'>
                 <h3 class='price-item__name'><?= Yii::t('app_price', 'Пакет максимальний_1') ?></h3>
@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = 'Price';
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', '1 найманий працівник (первинні документи, податки та звітність)') ?></li>
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', 'консультування') ?></li>
                 </ul>
-                <p class='cost'>1800-2200 грн</p>
+                <p class='cost'>2300-2500 грн</p>
             </article>
             <article class='price-item'>
                 <h3 class='price-item__name'><?= Yii::t('app_price', 'Пакет максимальний_2') ?></h3>
@@ -81,7 +81,7 @@ $this->params['breadcrumbs'][] = 'Price';
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', '2-4 найманий працівник (первинні документи, податки та звітність)') ?></li>
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', 'консультування') ?></li>
                 </ul>
-                <p class='cost'>2000-2600 грн</p>
+                <p class='cost'>2500-3000 грн</p>
             </article>
             <article class='price-item'>
                 <h3 class='price-item__name'><?= Yii::t('app_price', 'Пакет максимальний_3') ?></h3>
@@ -93,8 +93,9 @@ $this->params['breadcrumbs'][] = 'Price';
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', '5-8 найманий працівник (первинні документи, податки та звітність)') ?></li>
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', 'консультування') ?></li>
                 </ul>
-                <p class='cost'>2400-3400 грн</p>
+                <p class='cost'>3100-3900 грн</p>
             </article>
+            <h3><?= Yii::t('app_price','Ціну вказано за місяць') ?>* </h3>
         </section>
 
         <section class='price-category bg-hand' id='group_3'>
@@ -108,7 +109,7 @@ $this->params['breadcrumbs'][] = 'Price';
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', 'підготовка та щоквартальна подача звітності') ?></li>
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', 'консультування') ?></li>
                 </ul>
-                <p class='cost'>1100-1500 грн</p>
+                <p class='cost'>1500-1900 грн</p>
             </article>
             <article class='price-item'>
                 <h3 class='price-item__name'><?= Yii::t('app_price', 'Пакет максимальний_1') ?></h3>
@@ -120,7 +121,7 @@ $this->params['breadcrumbs'][] = 'Price';
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', '1 найманий працівник (первинні документи, податки та звітність)') ?></li>
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', 'консультування') ?></li>
                 </ul>
-                <p class='cost'>1800-2200 грн</p>
+                <p class='cost'>2300-2800 грн</p>
             </article>
             <article class='price-item'>
                 <h3 class='price-item__name'><?= Yii::t('app_price', 'Пакет максимальний_2') ?></h3>
@@ -131,7 +132,7 @@ $this->params['breadcrumbs'][] = 'Price';
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', '2-4 найманий працівник (первинні документи, податки та звітність)') ?></li>
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', 'консультування') ?></li>
                 </ul>
-                <p class='cost'>2300-2700 грн</p>
+                <p class='cost'>2800-3200 грн</p>
             </article>
             <article class='price-item'>
                 <h3 class='price-item__name'><?= Yii::t('app_price', 'Пакет максимальний_3') ?></h3>
@@ -142,8 +143,9 @@ $this->params['breadcrumbs'][] = 'Price';
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', 'від 5 найманий працівник (первинні документи, податки та звітність)') ?></li>
                     <li><i class='fa-solid fa-check'></i><?= Yii::t('app_price', 'консультування') ?></li>
                 </ul>
-                <p class='cost'>від 2700 грн</p>
+                <p class='cost'>3200-3500 грн</p>
             </article>
+            <h3><?= Yii::t('app_price','Ціну вказано за місяць') ?>* </h3>
         </section>
 
         <section class='price-category bg-hand' id='without_tax'>
@@ -212,23 +214,27 @@ $this->params['breadcrumbs'][] = 'Price';
             <div class='others'>
                 <article class='price-item'>
                     <h3 class='price-item__name'><?= Yii::t('app_price', 'Відкриття ФОП') ?></h3>
-                    <p class='cost'>1500-2000 грн</p>
+                    <p class='cost'>2500грн</p>
+                </article>
+                <article class='price-item'>
+                    <h3 class='price-item__name'><?= Yii::t('app_price', 'Закриття ФОП') ?></h3>
+                    <p class='cost'>2300грн</p>
                 </article>
                 <article class='price-item'>
                     <h3 class='price-item__name'><?= Yii::t('app_price', 'Підключення ПРРО') ?></h3>
-                    <p class='cost'>800-2000 грн</p>
+                    <p class='cost'>2400 грн</p>
                 </article>
                 <article class='price-item'>
                     <h3 class='price-item__name'><?= Yii::t('app_price', 'Здача річної звітності ФОП на єдиному податку 1 група') ?></h3>
-                    <p class='cost'>500 грн</p>
-                </article>
-                <article class='price-item'>
-                    <h3 class='price-item__name'><?= Yii::t('app_price', 'Здача річної звітності ФОП на єдиному податку 1 група с заповненням книги') ?></h3>
-                    <p class='cost'>1000 грн</p>
+                    <p class='cost'>1700 грн</p>
                 </article>
                 <article class='price-item'>
                     <h3 class='price-item__name'><?= Yii::t('app_price', 'Здача річної звітності ФОП на єдиному податку 2 група') ?></h3>
-                    <p class='cost'>700 грн</p>
+                    <p class='cost'>2000 грн</p>
+                </article>
+                <article class='price-item'>
+                    <h3 class='price-item__name'><?= Yii::t('app_price', 'Здача квартальної звітності ФОП 3 група') ?></h3>
+                    <p class='cost'>1500 грн</p>
                 </article>
                 <article class='price-item'>
                     <h3 class='price-item__name'><?= Yii::t('app_price', 'Кадровий облік') ?></h3>
