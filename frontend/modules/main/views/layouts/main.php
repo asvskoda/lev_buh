@@ -159,8 +159,9 @@ $currentParams = Yii::$app->request->getQueryParams();
                     <a rel='noopener noreferrer' target='_blank' href='viber://chat?number=+380986073304'
                        class='social-icons-link'>
                         <i class='fa-brands fa-viber cw'></i>
+
                     </a>
-                    <a rel='noopener noreferrer' target='_blank' href='https://www.instagram.com/lev_buh_agency'
+                    <a rel='noopener noreferrer' target='_blank' href='https://www.instagram.com/lev.buh.agency?igsh=NnFlb2ljdnRnanJu'
                        class='social-icons-link'>
                         <i class='fa-brands fa-instagram cw'></i>
                     </a>
