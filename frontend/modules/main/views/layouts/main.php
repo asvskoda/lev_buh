@@ -14,8 +14,8 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::canonical()]);
 $this->registerLinkTag(['rel' => 'alternate', 'hreflang' => 'uk', 'href' => Url::to(['', 'lang' => 'uk'], true)]);
 $this->registerLinkTag(['rel' => 'alternate', 'hreflang' => 'ru', 'href' => Url::to(['', 'lang' => 'ru'], true)]);
 $this->registerLinkTag(['rel' => 'alternate', 'hreflang' => 'x-default', 'href' => Url::canonical()]);
-// todo
-$this->registerMetaTag(['name' => 'description', 'content' => Yii::t('app', 'Опис сайту українською')]);
+// Для каждой страницы свой !!!
+//$this->registerMetaTag(['name' => 'description', 'content' => Yii::t('app', 'Опис сайту українською')]);
 
 $myAssetBundle = AppAsset::register($this);
 

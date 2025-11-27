@@ -5,6 +5,12 @@
 use yii\helpers\Html;
 
 $this->title = 'Наша компанія';
+$this->registerMetaTag([
+        'name' => 'description',
+        'content' => 'Команда Lev-Buh — профессиональные бухгалтеры с опытом более 10 лет.' //todo Yii::t(
+]);
+
+
 $this->params['breadcrumbs'][] = 'About';
 ?>
 <div class="site-about">

@@ -7,6 +7,12 @@ use frontend\modules\main\assets\AppAsset;
 use yii\helpers\Html;
 
 $this->title = Yii::t('app', 'Послуги');
+$this->registerMetaTag([
+        'name' => 'description',
+        'content' =>
+            'Бухгалтерські послуги для ФОП та ТОВ: ведення обліку, подання звітності, розрахунок податків, консультації та супровід бізнесу.'
+]);
+
 $this->params['breadcrumbs'][] = 'Serve';
 
 $myAssetBundle = AppAsset::register($this);
