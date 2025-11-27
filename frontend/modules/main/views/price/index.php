@@ -8,6 +8,11 @@ use yii\helpers\Html;
 $myAssetBundle = AppAsset::register($this);
 
 $this->title = Yii::t('app_price', 'Ціни');
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => Yii::t('app_price','Вартість бухгалтерських послуг. Фіксовані тарифи для ФОП та ТОВ.'),
+]);
+
 $this->params['breadcrumbs'][] = 'Price';
 ?>
 <div class='container'>

@@ -11,7 +11,13 @@ use yii\captcha\Captcha;
 /** @var ActiveForm $form */
 /** @var ContactForm $model */
 
-$this->title = 'Contact';
+$this->title = Yii::t('app', 'Контакти');
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => Yii::t('app','Контакти Lev-Buh: WhatsApp, Telegram, Viber, телефони та графік роботи.'),
+]);
+
 $this->params['breadcrumbs'][] = $this->title;
 $myAssetBundle = AppAsset::register($this);
 ?>

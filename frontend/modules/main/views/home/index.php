@@ -9,6 +9,11 @@ use frontend\modules\main\forms\ContactForm;
 $lang = Yii::$app->language;
 
 $this->title = Yii::t('app', 'ЛЕВ Бухгалтерська агенція');
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Бухгалтерские услуги в Украине. Полное сопровождение ФОП и ТОВ.',
+]);
 ?>
 
 <div id="main-fon" class='text-white fon-title'>
