@@ -37,7 +37,7 @@ $currentParams = Yii::$app->request->getQueryParams();
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "ug08ntfjuf");
+            })(window, document, "clarity", "script", "ugen2n23bd");
         </script>
     </head>
     <body>
