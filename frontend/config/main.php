@@ -101,6 +101,7 @@ return [
                 'consulting' => 'admin/consulting/index',
                 'article' => 'admin/article/index',
                 'admin' => 'admin/admin/index',
+                'articles' => 'main/article/index',
             ],
         ],
     ]),

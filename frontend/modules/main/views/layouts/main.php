@@ -73,23 +73,9 @@ $currentParams = Yii::$app->request->getQueryParams();
                             <li class='nav-item'>
                                 <?= Html::a(Yii::t('app', 'Контакти'), ['/contact'], ['class' => 'nav-link contact']) ?>
                             </li>
-                            <?php if (!Yii::$app->user->isGuest): ?>
-                                <li class='nav-item'>
-                                    <?= Html::a(
-                                        Yii::t('app', 'Адмінка'),
-                                        ['/admin/consulting/index'],
-                                        ['class' => 'nav-link consulting']
-                                    ) ?>
-                                </li>
-                                <li class='nav-item'>
-                                    <?= Html::beginForm(['/admin/auth/logout'], 'post', ['class' => 'd-flex'])
-                                    . Html::submitButton(
-                                        'Logout (' . Yii::$app->user->identity->username . ')',
-                                        ['class' => 'btn btn-link logout text-decoration-none']
-                                    )
-                                    . Html::endForm(); ?>
-                                </li>
-                            <?php endif ?>
+                            <li class='nav-item'>
+                                <?= Html::a(Yii::t('app', 'Корисне'), ['/articles'], ['class' => 'nav-link articles']) ?>
+                            </li>
                         </ul>
                         <div id='language-switcher'>
                             <?= Html::a(
@@ -114,6 +100,25 @@ $currentParams = Yii::$app->request->getQueryParams();
         </div>
     </header>
     <main role='main'>
+        <?php if (!Yii::$app->user->isGuest): ?>
+            <div class='admin-nav-block'>
+                <div class='ml-100'>
+                    <?= Html::a(
+                            Yii::t('app', 'Адмінка'),
+                            ['/admin/admin/index'],
+                            ['class' => '']
+                    ) ?>
+                </div>
+                <div class='ml-100'>
+                        <?= Html::beginForm(['/admin/auth/logout'], 'post', ['class' => ''])
+                        . Html::submitButton(
+                                'Logout (' . Yii::$app->user->identity->username . ')',
+                                ['class' => 'btn btn-link logout text-decoration-none']
+                        )
+                        . Html::endForm(); ?>
+                    </div>
+            </div>
+        <?php endif ?>
         <?php if (isset($this->params['breadcrumbs'])) : ?>
         <div class='breadcrumbs' id='breadcrumbs'>
             <ul class='breadcrumb'>
