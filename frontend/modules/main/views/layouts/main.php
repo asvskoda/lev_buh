@@ -94,31 +94,33 @@ $currentParams = Yii::$app->request->getQueryParams();
                             <span>+38 (098) 607-33-04</span>
                             <small>Пн.-Пт. з 09:00 до 18:00</small>
                         </a>
+
+                        <?php if (!Yii::$app->user->isGuest): ?>
+                            <div class="header-admin">
+                                <?= Html::a(
+                                        Yii::t('app', 'Адмінка'),
+                                        ['/admin/admin/index'],
+                                        ['class' => 'header-admin__btn']
+                                ) ?>
+
+                                <?= Html::beginForm(['/admin/auth/logout'], 'post', ['class' => 'header-admin__form']) ?>
+                                <?= Html::submitButton(
+                                        '⎋',
+                                        [
+                                                'class' => 'header-admin__logout',
+                                                'title' => 'Logout'
+                                        ]
+                                ) ?>
+                                <?= Html::endForm() ?>
+                            </div>
+                        <?php endif; ?>
+
                     </div>
                 </nav>
             </div>
         </div>
     </header>
     <main role='main'>
-        <?php if (!Yii::$app->user->isGuest): ?>
-            <div class='admin-nav-block'>
-                <div class='ml-100'>
-                    <?= Html::a(
-                            Yii::t('app', 'Адмінка'),
-                            ['/admin/admin/index'],
-                            ['class' => '']
-                    ) ?>
-                </div>
-                <div class='ml-100'>
-                        <?= Html::beginForm(['/admin/auth/logout'], 'post', ['class' => ''])
-                        . Html::submitButton(
-                                'Logout (' . Yii::$app->user->identity->username . ')',
-                                ['class' => 'btn btn-link logout text-decoration-none']
-                        )
-                        . Html::endForm(); ?>
-                    </div>
-            </div>
-        <?php endif ?>
         <?php if (isset($this->params['breadcrumbs'])) : ?>
         <div class='breadcrumbs' id='breadcrumbs'>
             <ul class='breadcrumb'>
