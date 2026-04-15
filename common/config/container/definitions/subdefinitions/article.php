@@ -8,6 +8,6 @@ use common\modules\article\services\interfaces\ArticleServiceInterface;
 use common\modules\article\services\ArticleService;
 
 return [
-    ArticleServiceInterface::class => ArticleService::class,
     ArticleRepositoryInterface::class => ArticleDBRepository::class,
+    ArticleServiceInterface::class => ArticleService::class,
 ];

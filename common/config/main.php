@@ -2,6 +2,11 @@
 
 declare(strict_types=1);
 
+$params = array_merge(
+    require __DIR__ . '/params.php',
+    require __DIR__ . '/params-local.php'
+);
+
 return [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -15,4 +20,6 @@ return [
         'singletons' => require(__DIR__ . '/container/singletons/common.php'),
     ],
     'components' => require(__DIR__ . '/components/common.php'),
+
+    'params' => $params,
 ];

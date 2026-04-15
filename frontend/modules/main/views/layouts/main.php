@@ -32,6 +32,7 @@ $currentParams = Yii::$app->request->getQueryParams();
         <?= "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css'>" ?>
         <title><?= Html::encode(Yii::t('app', $this->title)) ?></title>
         <?php $this->head() ?>
+
         <script type="text/javascript">
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -71,23 +72,9 @@ $currentParams = Yii::$app->request->getQueryParams();
                             <li class='nav-item'>
                                 <?= Html::a(Yii::t('app', 'Контакти'), ['/contact'], ['class' => 'nav-link contact']) ?>
                             </li>
-                            <?php if (!Yii::$app->user->isGuest): ?>
-                                <li class='nav-item'>
-                                    <?= Html::a(
-                                        Yii::t('app', 'Адмінка'),
-                                        ['/admin/consulting/index'],
-                                        ['class' => 'nav-link consulting']
-                                    ) ?>
-                                </li>
-                                <li class='nav-item'>
-                                    <?= Html::beginForm(['/admin/auth/logout'], 'post', ['class' => 'd-flex'])
-                                    . Html::submitButton(
-                                        'Logout (' . Yii::$app->user->identity->username . ')',
-                                        ['class' => 'btn btn-link logout text-decoration-none']
-                                    )
-                                    . Html::endForm(); ?>
-                                </li>
-                            <?php endif ?>
+                            <li class='nav-item'>
+                                <?= Html::a(Yii::t('app', 'Корисне'), ['/articles'], ['class' => 'nav-link articles']) ?>
+                            </li>
                         </ul>
                         <div id='language-switcher'>
                             <?= Html::a(
@@ -106,6 +93,27 @@ $currentParams = Yii::$app->request->getQueryParams();
                             <span>+38 (098) 607-33-04</span>
                             <small>Пн.-Пт. з 09:00 до 18:00</small>
                         </a>
+
+                        <?php if (!Yii::$app->user->isGuest): ?>
+                            <div class="header-admin">
+                                <?= Html::a(
+                                        Yii::t('app', 'Адмінка'),
+                                        ['/admin/admin/index'],
+                                        ['class' => 'header-admin__btn']
+                                ) ?>
+
+                                <?= Html::beginForm(['/admin/auth/logout'], 'post', ['class' => 'header-admin__form']) ?>
+                                <?= Html::submitButton(
+                                        '⎋',
+                                        [
+                                                'class' => 'header-admin__logout',
+                                                'title' => 'Logout'
+                                        ]
+                                ) ?>
+                                <?= Html::endForm() ?>
+                            </div>
+                        <?php endif; ?>
+
                     </div>
                 </nav>
             </div>

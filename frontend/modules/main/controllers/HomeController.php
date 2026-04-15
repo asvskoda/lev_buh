@@ -55,7 +55,8 @@ final class HomeController extends Controller
         try {
             $form->load($post);
             if ($form->validate()) {
-                $consultingService = new ConsultingService();
+                /** @var ConsultingService $consultingService */
+                $consultingService = Yii::$container->get(ConsultingService::class);
                 $consultingService->notification($form);
             } else {
                 LogHelper::writeInfo(

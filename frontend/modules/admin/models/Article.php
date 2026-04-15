@@ -3,7 +3,7 @@
 namespace frontend\modules\admin\models;
 
 use frontend\modules\admin\behaviors\ResizeImageBehavior;
-use frontend\modules\admin\models\ArticleQuery;
+use frontend\modules\admin\models\queries\ArticleQuery;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
