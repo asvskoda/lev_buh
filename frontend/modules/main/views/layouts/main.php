@@ -72,22 +72,24 @@ $currentParams = Yii::$app->request->getQueryParams();
                             <li class='nav-item'>
                                 <?= Html::a(Yii::t('app', 'Контакти'), ['/contact'], ['class' => 'nav-link contact']) ?>
                             </li>
-                            <li class='nav-item'>
+                            <li class='nav-item display-none'>
                                 <?= Html::a(Yii::t('app', 'Корисне'), ['/articles'], ['class' => 'nav-link articles']) ?>
                             </li>
+                            <li class='nav-item header-navbar__language'>
+                                <div id='language-switcher'>
+                                    <?= Html::a(
+                                        Yii::t('app', 'Українська'),
+                                        ['/main/home/language', 'lang' => 'uk', 'returnRoute' => $currentRoute, 'returnParams' => $currentParams],
+                                        ['class' => Yii::$app->language === 'uk' ? 'active' : '']
+                                    ) ?>
+                                    <?= Html::a(
+                                        Yii::t('app', 'Російська'),
+                                        ['/main/home/language', 'lang' => 'ru', 'returnRoute' => $currentRoute, 'returnParams' => $currentParams],
+                                        ['class' => Yii::$app->language === 'ru' ? 'active' : '']
+                                    ) ?>
+                                </div>
+                            </li>
                         </ul>
-                        <div id='language-switcher'>
-                            <?= Html::a(
-                                Yii::t('app', 'Українська'),
-                                ['/main/home/language', 'lang' => 'uk', 'returnRoute' => $currentRoute, 'returnParams' => $currentParams],
-                                ['class' => Yii::$app->language === 'uk' ? 'active' : '']
-                            ) ?>
-                            <?= Html::a(
-                                Yii::t('app', 'Російська'),
-                                ['/main/home/language', 'lang' => 'ru', 'returnRoute' => $currentRoute, 'returnParams' => $currentParams],
-                                ['class' => Yii::$app->language === 'ru' ? 'active' : '']
-                            ) ?>
-                        </div>
                         <a class='header-navbar__contacts' href='tel:+380986073304'>
                             <span><?= Yii::t('app', "Ми на зв'язку") ?></span>
                             <span>+38 (098) 607-33-04</span>
