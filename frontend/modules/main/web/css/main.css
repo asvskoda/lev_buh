@@ -1,3 +1,9 @@
+/* Именно это перенести в новый глобальный файл который будет во всех ассектах нужен*/
+.display-none {
+    display: none;
+}
+
+
 #main-fon {
     background-image: url('../images/main/first.webp');
     min-height: 700px;
@@ -127,13 +133,13 @@
 
 #language-switcher a {
     text-decoration: none;
-    color: #000;
+    color: #468966;
     margin-right: 10px;
 }
 
 #language-switcher a.active {
     font-weight: bold;
-    color: #007bff;
+    color: #174b23;
 }
 
 .breadcrumb {
@@ -172,6 +178,22 @@
 }
 
 @media(max-width: 767.8px) {
+    #language-switcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #language-switcher a {
+        color: white;
+        margin-right: 0;
+    }
+
+    #language-switcher a.active {
+        color: white;
+        border-bottom: solid 3px white;
+    }
+
     #main-fon {
         min-height: 7em;
         background-position: center;
@@ -217,5 +239,11 @@
     .modal-button-consulting {
         line-height: 25px;
         padding: 15px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199.8px) {
+    .header-navbar__language {
+        display: none;
     }
 }
