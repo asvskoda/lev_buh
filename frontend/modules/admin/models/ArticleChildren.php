@@ -10,12 +10,12 @@ use yii\db\ActiveRecord;
  */
 final class ArticleChildren extends ActiveRecord
 {
-    public static function tableName()
+    public static function tableName(): string
     {
         return '{{%article_children}}';
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             ['parent_id', 'required'],

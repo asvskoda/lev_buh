@@ -9,6 +9,11 @@ use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
+use yii\validators\BooleanValidator;
+use yii\validators\ImageValidator;
+use yii\validators\NumberValidator;
+use yii\validators\RequiredValidator;
+use yii\validators\StringValidator;
 use yii\web\UploadedFile;
 
 /**
@@ -21,11 +26,12 @@ use yii\web\UploadedFile;
  * @property string        $slug - путь
  * @property string        $image - изображение статьи
  * @property string|null   $content - тело
+ * @property string|null   $content_ru - тело на русском
  * @property string        $created_at - Дата создания
  * @property string        $updated_at - Дата обновления
  * @property Category      $category - категория
- * @property Article[]     $children - дочерние элементы
- * @property Article[]     $parents - родительские элементы
+ * @property array<Article> $children - дочерние элементы
+ * @property array<Article> $parents - родительские элементы
  * @property-read string   $imagesDir - абсолютный путь к директории для сохранения изображений статей
  */
 class Article extends ActiveRecord
@@ -33,15 +39,12 @@ class Article extends ActiveRecord
     public $noImage = '/img/no-image.png';
     public $imageFile;
 
-    public static function tableName()
+    public static function tableName(): string
     {
         return '{{%articles}}';
     }
 
-    /**
-     * @return ArticleQuery
-     */
-    public static function find()
+    public static function find(): ArticleQuery
     {
         return new ArticleQuery(get_called_class());
     }
@@ -72,18 +75,12 @@ class Article extends ActiveRecord
     public function rules()
     {
         return [
-            ['title', 'required'],
-            ['title', 'string'],
-            ['slug', 'required'],
-            ['slug', 'string'],
-            ['image', 'string'],
-            ['category_id', 'required'],
-            ['category_id', 'integer'],
-            ['content', 'string'],
-            ['is_active', 'boolean'],
-            ['priority', 'integer'],
+            [['title', 'slug', 'category_id'], RequiredValidator::class],
+            [['title', 'slug', 'image', 'content'], StringValidator::class],
+            [['category_id', 'priority'], NumberValidator::class, 'integerOnly' => true],
+            ['is_active', BooleanValidator::class],
             ['priority', 'default', 'value' => 100],
-            ['imageFile', 'image', 'extensions' => ['png', 'jpg', 'jpeg', 'gif'], 'maxSize' => 1024 * 1024]
+            ['imageFile', ImageValidator::class, 'extensions' => ['png', 'jpg', 'jpeg', 'gif'], 'maxSize' => 1024 * 1024]
         ];
     }
 

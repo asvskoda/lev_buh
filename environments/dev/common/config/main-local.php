@@ -8,7 +8,7 @@ return [
             'class' => Connection::class,
             'dsn' => 'pgsql:host=lev-db;port=5432;dbname=lev_db',
             'username' => 'postgres',
-            'password' => 'a4&_GH1tR67',
+            'password' => getenv('DUMP_DB_PASS'),
             'charset' => 'utf8',
             'on afterOpen' => function ($event) {
                 $event->sender->createCommand("SET timezone to 'Europe/Minsk';")->execute();

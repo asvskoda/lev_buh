@@ -21,3 +21,9 @@ make init
 ```
 echo '127.0.0.1 lev_buh.local' | sudo tee -a /etc/hosts
 echo
+```
+
+## Локальное подключение к БД - common/config/main-local.php
+```
+Накатка миграций из под контейнера пхп докера - php yii migrate
+
