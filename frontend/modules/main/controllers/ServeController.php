@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace frontend\modules\main\controllers;
 
-use frontend\models\ContactForm;
+use frontend\modules\main\forms\ContactForm;
 use yii\web\Controller;
 use Yii;
 

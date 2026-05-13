@@ -121,6 +121,10 @@ a:hover {
     margin-top: 10px;
 }
 
+.ml-100 {
+    margin-left: 100px;
+}
+
 .small-font {
     font-family: GetVoIP Grotesque;
 }

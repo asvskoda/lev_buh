@@ -11,12 +11,12 @@ use yii\db\ActiveRecord;
  */
 final class Category extends ActiveRecord
 {
-    public static function tableName()
+    public static function tableName(): string
     {
         return '{{%article_categories}}';
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             ['title', 'required'],
