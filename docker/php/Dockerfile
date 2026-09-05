@@ -5,7 +5,13 @@ ARG user
 ARG uid
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
+RUN sed -i \
+        -e 's|http://deb.debian.org/debian-security|https://snapshot.debian.org/archive/debian-security/20260831T235959Z|' \
+        -e 's|http://deb.debian.org/debian|https://snapshot.debian.org/archive/debian/20260831T235959Z|' \
+        /etc/apt/sources.list \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get -o Acquire::Check-Valid-Until=false update \
+    && apt-get install -y \
     sudo \
     git \
     curl \
@@ -23,16 +29,14 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     unzip \
     libreoffice \
-    supervisor
+    supervisor \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 #----------------------#
 
 # Install xdebug
 RUN pecl install xdebug-2.9.0 \
     && docker-php-ext-enable xdebug
-#----------------------#
-
-# Clear cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 #----------------------#
 
 # Install PHP extensions
