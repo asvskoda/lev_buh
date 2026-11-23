@@ -19,7 +19,7 @@ use yii\helpers\HtmlPurifier;
 
 final class ConsultingService
 {
-    /** Повторная заявка с тем же телефоном или email за этот период не сохраняется */
+    /** Точный повтор заявки (тот же телефон, email и вопрос) за этот период не сохраняется */
     private const DUPLICATE_INTERVAL = '1 day';
 
     private NotifierInterface $notifier;
@@ -52,7 +52,7 @@ final class ConsultingService
         if (!$this->rateLimiter->attempt($ip)) {
             $this->createLog("Rate limit exceeded, ip - {$ip}");
             throw new ConsultingRequestRejectedException(
-                Yii::t('app', 'Ви вже надіслали запит. Спробуйте ще раз через кілька хвилин')
+                Yii::t('app', 'Ви щойно надіслали запит. Спробуйте ще раз трохи згодом')
             );
         }
 
@@ -68,6 +68,7 @@ final class ConsultingService
         $spamReason = $this->spamDetector->detect($form, $formAge);
 
         if ($spamReason !== null) {
+            $this->rateLimiter->markAsSpammer($ip);
             $this->createLog("Spam rejected: {$spamReason}, ip - {$ip}, " . $this->formToJson($form));
             return;
         }
@@ -91,9 +92,9 @@ final class ConsultingService
     {
         return ConsultingRequest::find()
             ->where([
-                'or',
-                ['phone' => trim(strip_tags((string)$form->phone))],
-                ['email' => filter_var((string)$form->email, FILTER_SANITIZE_EMAIL)],
+                'phone'    => trim(strip_tags((string)$form->phone)),
+                'email'    => filter_var((string)$form->email, FILTER_SANITIZE_EMAIL),
+                'question' => HtmlPurifier::process((string)$form->question),
             ])
             ->andWhere(['>=', 'created_at', new Expression("NOW() - INTERVAL '" . self::DUPLICATE_INTERVAL . "'")])
             ->exists();

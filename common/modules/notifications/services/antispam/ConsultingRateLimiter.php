@@ -9,14 +9,20 @@ use yii\caching\CacheInterface;
 
 /**
  * Ограничение частоты отправки заявок на консультацию с одного IP.
+ * Обычный IP может отправлять заявки с небольшим интервалом,
+ * IP, с которого пришёл спам, на час переводится в строгий режим.
  * Хранится в кеше, а не в сессии: боты куки не сохраняют
  */
 final class ConsultingRateLimiter
 {
-    private const CACHE_KEY_PREFIX = 'consulting_rate_limit_';
-    private const MIN_INTERVAL_SECONDS = 300;
+    private const ATTEMPTS_KEY_PREFIX = 'consulting_rate_limit_';
+    private const SPAMMER_KEY_PREFIX = 'consulting_spammer_';
     private const WINDOW_SECONDS = 3600;
-    private const MAX_ATTEMPTS_PER_WINDOW = 3;
+
+    private const MIN_INTERVAL_SECONDS = 15;
+
+    private const SPAMMER_MIN_INTERVAL_SECONDS = 300;
+    private const SPAMMER_MAX_ATTEMPTS_PER_WINDOW = 3;
 
     private CacheInterface $cache;
 
@@ -30,19 +36,22 @@ final class ConsultingRateLimiter
      */
     public function attempt(string $ip): bool
     {
-        $key = self::CACHE_KEY_PREFIX . $ip;
+        $key = self::ATTEMPTS_KEY_PREFIX . $ip;
         $now = time();
 
         $attempts = array_values(array_filter(
             (array)($this->cache->get($key) ?: []),
             static fn(int $time): bool => $now - $time < self::WINDOW_SECONDS
         ));
+        $sinceLastAttempt = $attempts === [] ? PHP_INT_MAX : $now - max($attempts);
 
-        if (count($attempts) >= self::MAX_ATTEMPTS_PER_WINDOW) {
-            return false;
-        }
-
-        if ($attempts !== [] && $now - max($attempts) < self::MIN_INTERVAL_SECONDS) {
+        if ($this->cache->exists(self::SPAMMER_KEY_PREFIX . $ip)) {
+            if (count($attempts) >= self::SPAMMER_MAX_ATTEMPTS_PER_WINDOW
+                || $sinceLastAttempt < self::SPAMMER_MIN_INTERVAL_SECONDS
+            ) {
+                return false;
+            }
+        } elseif ($sinceLastAttempt < self::MIN_INTERVAL_SECONDS) {
             return false;
         }
 
@@ -50,5 +59,13 @@ final class ConsultingRateLimiter
         $this->cache->set($key, $attempts, self::WINDOW_SECONDS);
 
         return true;
+    }
+
+    /**
+     * Переводит IP в строгий режим на час
+     */
+    public function markAsSpammer(string $ip): void
+    {
+        $this->cache->set(self::SPAMMER_KEY_PREFIX . $ip, time(), self::WINDOW_SECONDS);
     }
 }
