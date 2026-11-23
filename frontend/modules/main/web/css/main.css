@@ -57,6 +57,15 @@
     margin-top: 10px;
 }
 
+/* Поле-ловушка для ботов */
+.consulting-hp {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 .about_us {
     margin-top: -30px;
     display: flex;
