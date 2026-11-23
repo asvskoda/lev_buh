@@ -45,8 +45,9 @@ $this->title = 'AdminPanel';
                     'class' => ActionColumn::class,
                     'header'=>'Actions',
                     'template' => '{view}',
+                    // абсолютный маршрут: у AdminController нет view, относительный вёл на admin/admin/view (404)
                     'urlCreator' => function ($action, ConsultingRequest $model, $key, $index, $column) {
-                        return Url::toRoute([$action, 'id' => $model->id]);
+                        return Url::toRoute(['/admin/consulting/' . $action, 'id' => $model->id]);
                     }
                 ],
             ],
