@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace frontend\modules\main\controllers;
 
+use common\modules\notifications\exceptions\ConsultingRequestRejectedException;
 use common\modules\notifications\services\ConsultingService;
 use frontend\modules\main\forms\ContactForm;
 use yii\web\Controller;
@@ -44,7 +45,6 @@ final class HomeController extends Controller
         $post = $request->post();
         $formInfo = $post['ContactForm'];
         $formInfo['ip'] = $ipAddress;
-        $form->ip = $ipAddress;
 
         if (!$request->isPost && !$form->load($post) && !$form->validate()) {
             return $this->redirect(Url::toRoute('index'));
@@ -54,6 +54,8 @@ final class HomeController extends Controller
 
         try {
             $form->load($post);
+            // после load(), иначе IP можно подменить полем ContactForm[ip]
+            $form->ip = $ipAddress;
             if ($form->validate()) {
                 /** @var ConsultingService $consultingService */
                 $consultingService = Yii::$container->get(ConsultingService::class);
@@ -63,12 +65,21 @@ final class HomeController extends Controller
                     'Ошибка валидации - ' . $jsonFormInfo,
                     Yii::getAlias('@runtime/logs/consulting.log')
                 );
+
+                $errors = [];
+                foreach ($form->getFirstErrors() as $attribute => $error) {
+                    $errors[] = $form->getAttributeLabel($attribute) . ': ' . $error;
+                }
+
+                throw new ConsultingRequestRejectedException(implode(' ', $errors));
             }
 
             Yii::$app->session->setFlash(
                 'success',
                 Yii::t('app', 'Ваш запит прийнято. Ми зателефонуємо вам ')
             );
+        } catch (ConsultingRequestRejectedException $exception) {
+            Yii::$app->session->setFlash('warning', $exception->getMessage());
         } catch (\Throwable $exception) {
             LogHelper::writeInfo(
                 $jsonFormInfo . ' error - ' . $exception->getMessage(),

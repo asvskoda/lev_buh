@@ -56,8 +56,9 @@ $myAssetBundle = AppAsset::register($this);
             <?php $form = ActiveForm::begin(['id' => 'contact-form', 'action' => ['/main/home/create-consulting'], 'options' => []]); ?>
             <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
             <?= $form->field($model, 'email') ?>
-            <?= $form->field($model, 'phone') ?>
+            <?= $form->field($model, 'phone')->textInput(['type' => 'tel']) ?>
             <?= $form->field($model, 'question')->textInput() ?>
+            <?= $this->render('@frontend/modules/main/views/_consulting_antispam', ['model' => $model]) ?>
             <div class='form-group consulting-submit-button'>
                 <?= Html::submitButton(
                     Yii::t('app', 'Надіслати'),

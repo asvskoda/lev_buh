@@ -13,6 +13,13 @@ jQuery(function ($) {
         $('#myModal').modal('hide');
     });
 
+    // Защита от повторной отправки заявки двойным кликом
+    $('#contact-form').on('beforeSubmit', function () {
+        $(this).find('button[type=submit]').prop('disabled', true);
+
+        return true;
+    });
+
     $('.header-navbar__btn').on('click', function () {
         $(this).toggleClass('active');
         $('.header-navbar__list').toggleClass('active');

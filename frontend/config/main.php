@@ -82,6 +82,8 @@ return [
                     'levels' => ['error', 'warning','info'],
                     'logVars' => [],
                     'logFile' => '@runtime/logs/app.log',
+                    // httpclient пишет в info полный URL и тело запроса: токен Telegram-бота и данные клиентов
+                    'except' => ['yii\httpclient\*'],
                 ],
             ],
         ],
